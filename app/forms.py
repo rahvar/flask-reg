@@ -13,7 +13,8 @@ class RegistrationForm(Form):
     confirm = PasswordField('Repeat Password')
     
 class LoginForm(Form):
-    nickname = StringField('openid', validators=[DataRequired()])
+    username = TextField('Username', [validators.Length(min=4, max=20)])
     # email = StringField('openid', validators=[DataRequired()])
-    remember_me = BooleanField('remember_me', default=False)
 
+    password = PasswordField('New Password', [
+        validators.Required(),])
